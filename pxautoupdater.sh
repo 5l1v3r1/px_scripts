@@ -7,12 +7,6 @@
     echo    
   exit 1
   fi
-
-
-touch /etc/cron.daily/pxautoupdater
-
-echo -e "#!/bin/bash\ncurl -s localhost:8243/api/v2/plugins/system/update?target=stable" > /etc/cron.daily/pxautoupdater
-
-chmod +x /etc/cron.daily/pxautoupdater
+ln -s /opt/pwnix/chef/update.sh /etc/cron.daily/autoupdate
 clear
 echo "Pwnix updates scheduled daily"
